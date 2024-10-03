@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Story</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header onclick="goHome()">
+    <h1>Our Love Story</h1>
+    <p>Celebrating Us</p>
+  </header>
+
+  <nav id="nav-bar">
+    <button onclick="toggleSection('story')">Memory Lane</button>
+    <button onclick="toggleSection('gallery')">Photo Gallery</button>
+    <button onclick="toggleSection('countdown')">Countdown</button>
+    <button onclick="toggleSection('quiz')">Quiz</button>
+  </nav>
+
+  <!-- Memory Lane Section -->
+  <section id="story" class="hidden">
+    <h2>Memory Lane</h2>
+    <p>Here are the moments that made our love story so special.</p>
+    <div class="timeline">
+      <div class="event">
+        <h3>First Date</h3>
+        <p>January 15, 2021</p>
+      </div>
+      <div class="event">
+        <h3>First Trip Together</h3>
+        <p>June 25, 2021</p>
+      </div>
+      <div class="event">
+        <h3>Our First Anniversary</h3>
+        <p>January 15, 2022</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section id="gallery" class="hidden">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-container">
+      <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID_1" alt="Photo 1">
+      <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID_2" alt="Photo 2">
+      <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID_3" alt="Photo 3">
+    </div>
+  </section>
+
+  <!-- Countdown Timer -->
+  <section id="countdown" class="hidden">
+    <h2>Next Time We'll Meet</h2>
+    <p id="timer"></p>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz" class="hidden">
+    <h2>How well do you know us?</h2>
+    <p>Try this fun quiz about our relationship!</p>
+    <div id="quiz-container"></div>
+
+    <h3>Add New Question</h3>
+    <div id="quiz-form">
+      <input type="text" id="question" placeholder="Enter new question">
+      <input type="text" id="answerA" placeholder="Option A">
+      <input type="text" id="answerB" placeholder="Option B">
+      <input type="text" id="correct-answer" placeholder="Correct Answer (A or B)">
+      <button onclick="addQuestion()">Add Question</button>
+    </div>
+
+    <p id="quiz-result"></p>
+  </section>
+
+  <footer>
+    <p>With Love, From Mohidul</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

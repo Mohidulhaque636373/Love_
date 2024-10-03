@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fbe3e6;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #ff6b81;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #ff6b81;
+  margin-top: 20px;
+}
+
+section {
+  margin: 40px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.timeline .event {
+  background-color: white;
+  border: 2px solid #ff6b81;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50%;
+  text-align: left;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery-container img {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 2px solid #ff6b81;
+}
+
+#countdown p {
+  font-size: 24px;
+  color: #ff6b81;
+}
+
+button {
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ff4757;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav button {
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+footer {
+  margin-top: 40px;
+  color: #ff6b81;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .timeline .event,
+  .gallery-container img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timeline .event {
+    width: 100%;
+  }
+
+  .gallery-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    width: 90%;
+  }
+}
+
+
+/* No changes from the previous styles except the added styles below */
+
+header {
+  cursor: pointer;
+}
+
+#quiz-form input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 80%;
+}
+
+#quiz-form button {
+  width: 50%;
+}

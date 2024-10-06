@@ -68,7 +68,7 @@ function sendMessage() {
 // Open WhatsApp chat
 function openWhatsApp() {
   const phoneNumber = "9531976493"; // Your WhatsApp number
-  const message = "Hi there! Let's chat.";
+  const message = "Oye... Sunno na...I miss you Sona..❤️";
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }

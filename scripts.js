@@ -1,75 +1,74 @@
-// JavaScript for Love Story Project
+// Function to reveal the main page
 function revealMainPage() {
-  document.getElementById('landing-page').classList.add('hidden');
-  document.getElementById('main-page').classList.remove('hidden');
+  document.getElementById("landing-page").classList.add("hidden");
+  document.getElementById("main-page").classList.remove("hidden");
 }
 
+// Function to navigate home (to the main page)
 function goHome() {
-  document.getElementById('main-page').classList.add('hidden');
-  document.getElementById('landing-page').classList.remove('hidden');
+  document.getElementById("main-page").classList.add("hidden");
+  document.getElementById("landing-page").classList.remove("hidden");
 }
 
-function toggleSection(section) {
-  const sections = ['story', 'gallery', 'countdown', 'chat'];
-  sections.forEach((sec) => {
-      document.getElementById(sec).classList.add('hidden');
+// Function to toggle sections
+function toggleSection(sectionId) {
+  const sections = document.querySelectorAll("section");
+  sections.forEach(section => {
+      section.classList.add("hidden");
   });
-  document.getElementById(section).classList.remove('hidden');
+  document.getElementById(sectionId).classList.remove("hidden");
+}
 
-  // Start the countdown timer if the countdown section is displayed
-  if (section === 'countdown') {
-      startCountdown();
+// Countdown timer
+const countdownDate = new Date("February 1, 2025").getTime();
+const timerElement = document.getElementById("timer");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+  // If the countdown is over, write some text
+  if (distance < 0) {
+      clearInterval();
+      timerElement.innerHTML = "Time's up!";
   }
-}
+}, 1000);
 
-function startCountdown() {
-  const endDate = new Date('2024-10-15T00:00:00'); // Set your date here
-  const timerElement = document.getElementById('timer');
-
-  setInterval(() => {
-      const now = new Date();
-      const timeRemaining = endDate - now;
-
-      if (timeRemaining <= 0) {
-          timerElement.textContent = "It's time!";
-          return;
-      }
-
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }, 1000);
-}
-
+// Chat functionality
 function sendMessage() {
-  const input = document.getElementById('message-input');
-  const message = input.value.trim();
-  if (message) {
-      const messagesContainer = document.getElementById('messages');
-      const newMessage = document.createElement('div');
+  const input = document.getElementById("message-input");
+  const message = input.value;
+
+  if (message.trim() !== "") {
+      const messagesContainer = document.getElementById("messages");
+      const newMessage = document.createElement("div");
       newMessage.textContent = message;
-      newMessage.classList.add('message');
       messagesContainer.appendChild(newMessage);
-      input.value = '';
+      input.value = ""; // Clear input field
 
-      // Simulate a real-time response
+      // Display notification for new message
+      const notification = document.getElementById("notification");
+      notification.classList.remove("hidden");
+      notification.textContent = "New message received!";
+      
+      // Hide notification after 2 seconds
       setTimeout(() => {
-          const responseMessage = `You: ${message}`;
-          const botMessage = document.createElement('div');
-          botMessage.textContent = responseMessage;
-          botMessage.classList.add('bot-message');
-          messagesContainer.appendChild(botMessage);
-
-          // Show notification
-          const notification = document.getElementById('notification');
-          notification.classList.remove('hidden');
-          notification.textContent = 'New message received!';
-          setTimeout(() => {
-              notification.classList.add('hidden');
-          }, 3000);
-      }, 1000); // Simulate a 1-second delay for the response
+          notification.classList.add("hidden");
+      }, 2000);
   }
+}
+
+// Open WhatsApp chat
+function openWhatsApp() {
+  const phoneNumber = "9531976493"; // Your WhatsApp number
+  const message = "Hi there! Let's chat.";
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
 }
